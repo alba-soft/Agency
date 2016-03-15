@@ -601,10 +601,10 @@ WL_CALL		VARCHAR2(30),
 WL_EXPT		VARCHAR2(30)	)
 /
 
-CREATE TABLE GNRL_PRMTS			(
-GP_BACKUP		VARCHAR2(5),		-- Backup on exit AUTO, ASK, NO
-GP_BACKUP_DIR		VARCHAR2(100),		-- Backup Directory (default)
-GP_BACKUP_FILE		VARCHAR2(20)	)	-- Backup File Name (default)
+CREATE TABLE BKP_PRMTS			(
+BP_BACKUP		VARCHAR2(5),		-- Backup on exit AUTO, ASK, NO
+BP_BACKUP_DIR		VARCHAR2(100),		-- Backup Directory (default)
+BP_BACKUP_FILE		VARCHAR2(20)	)	-- Backup File Name (default)
 /
 
 CREATE FUNCTION SEQ_NUM (PR_code IN VARCHAR2) RETURN NUMBER IS

@@ -1,0 +1,623 @@
+CREATE TABLE REG_COMP			(
+RC_CODE			NUMBER(2),
+RC_DSCR			VARCHAR2(50)	)
+/
+
+CREATE TABLE BL_REP_LINE		(
+RB_REPORT                                                      NUMBER(2),
+RB_LINE                                                        NUMBER(9)	)
+/
+
+CREATE TABLE REPORTS		(
+RP_CODE                                                        NUMBER(2),
+RP_NAME                                                        VARCHAR2(20),
+RP_OS_FILE                                                     VARCHAR2(20)	)
+/
+
+CREATE TABLE DECLARE_TYPE	(
+DT_code		NUMBER(2),
+DT_shrt		VARCHAR2(2),
+DT_dscr		VARCHAR2(20),
+DT_vat		VARCHAR2(2)	)
+/
+
+CREATE TABLE CHRG_FLD_REP           (
+NH_REPORT                                                      NUMBER(2),
+NH_FIELD                                                       NUMBER(3),
+NH_ORDER                                                       NUMBER(2)    )
+/
+
+CREATE TABLE CHRG_FLD_GRP           (
+NG_REPORT                                                      NUMBER(2),
+NG_GROUP                                                       NUMBER(3),
+NG_FIELD                                                       NUMBER(3)    )
+/
+
+CREATE TABLE NAMES		(
+NM_CODE                                                        NUMBER(9),
+NM_NAME                                                        VARCHAR2(60),
+NM_ACNT                                                        VARCHAR2(15),
+NM_CNVS                                                        NUMBER(3),
+NM_CHRG                                                        NUMBER(3),
+NM_ACTV                                                        VARCHAR2(1)     )
+/
+
+CREATE TABLE NAME_TYPE		(  -- Adress Book Types (CLIENT, SUPPLIER, ...)
+NT_NAME                                                        NUMBER(9),
+NT_TYPE                                                        NUMBER(2)	)
+/
+
+CREATE TABLE NAME_details	(
+ND_name                                                        NUMBER(9),
+ND_field                                                       NUMBER(3),
+ND_VALUE                                                       NUMBER(5),
+ND_GVALUE                                                      VARCHAR2(30)  )
+/
+
+CREATE TABLE NAME_specific	(
+NS_code                                                        NUMBER(9),
+NS_name                                                        NUMBER(9),
+NS_VALUE                                                       VARCHAR2(40)  )
+/
+
+CREATE TABLE NAME_spec_details	(
+NP_specific                                                    NUMBER(9),
+NP_field                                                       NUMBER(3),
+NP_VALUE                                                       NUMBER(5),
+NP_GVALUE                                                      VARCHAR2(30)  )
+/
+
+CREATE TABLE NAME_fields	(
+NF_CODE                                                        NUMBER(3),
+NF_CATEG                                                       NUMBER(3),
+NF_DESCR                                                       VARCHAR2(25),
+NF_VALUE                                                       VARCHAR2(1)   )
+/
+
+CREATE TABLE NAME_values	(
+NV_CODE                                                        NUMBER(5),
+NV_FIELD                                                       NUMBER(3),
+NV_CVALUE                                                      VARCHAR2(25) )
+/
+
+CREATE TABLE NAME_Spec_fields	(
+NL_CODE                                                        NUMBER(3),
+NL_CATEG                                                       NUMBER(3),
+NL_DESCR                                                       VARCHAR2(25),
+NL_VALUE                                                       VARCHAR2(1)  )
+/
+
+CREATE TABLE NAME_spec_values	(
+NU_CODE                                                        NUMBER(5),
+NU_FIELD                                                       NUMBER(3),
+NU_CVALUE                                                      VARCHAR2(25) )
+/
+
+CREATE TABLE MODULES		(
+MD_CODE                                            NUMBER(2),
+MD_NAME                                            VARCHAR2(20)	)
+/
+
+CREATE TABLE NAME_MDL_FLD	(
+NR_MODULE                                                      NUMBER(2),   -- OLD VERSION
+NR_FIELD                                                       NUMBER(3),
+NR_ORDER                                                       NUMBER(2)    )
+/
+
+CREATE TABLE TABLE_NAMES       (
+TB_CODE                                                        NUMBER(6),
+TB_TABLE                                                       VARCHAR2(25)	)
+/
+
+CREATE TABLE MDL_TBL_FLD	(
+MT_TABLE                                                       NUMBER(6),   -- NEW VERSION
+MT_MODULE                                                      NUMBER(2),
+MT_FIELD                                                       NUMBER(3),
+MT_ORDER                                                       NUMBER(2)    )
+/
+
+CREATE TABLE NAME_SPEC_FLD_REP	(
+NE_REPORT                                                      NUMBER(2),
+NE_FIELD                                                       NUMBER(3),
+NE_ORDER                                                       NUMBER(2)    )
+/
+
+CREATE TABLE TYPE_NAME		(
+TN_code                                                         NUMBER(3),
+TN_descr                                                        VARCHAR2(20)   )
+/
+
+CREATE TABLE CANVASSERS		(
+NV_CODE				NUMBER(3),
+NV_INTL				VARCHAR2(3),
+NV_USER				NUMBER(3)	)
+/
+
+CREATE TABLE NAME_ACTV		(
+NA_NAME                                            NUMBER(9),
+NA_ACTV                                            VARCHAR2(1000)	)
+/
+
+CREATE TABLE COM_PLANNER	(
+PL_CNVS				NUMBER(3),
+PL_DATE				DATE,
+PL_CLNT				NUMBER(7)	)
+/
+
+CREATE TABLE CONTACTS		(
+CM_CODE				NUMBER(9),
+CM_CNVS				NUMBER(3),
+CM_DATE				DATE,
+CM_TYPE				NUMBER(1),
+CM_NAME				NUMBER(9)	)
+/
+
+CREATE TABLE CONTACT_TYPES	(
+TC_TYPE                                            NUMBER(1),
+TC_DSCR                                            VARCHAR(20)	)
+/
+
+CREATE TABLE CONTACT_CMNT	(
+MC_CODE                                            NUMBER(9),
+MC_CMNT                                            VARCHAR2(1000)	)
+/
+
+--CREATE TABLE CONTACT_RMRK	(
+--MR_CODE                                            NUMBER(9),
+--MR_RMRK                                            VARCHAR2(1000)	)
+--/
+
+CREATE TABLE BOOKINGS		(
+BK_CNTC                                            NUMBER(9),
+BK_CODE                                            NUMBER(9),
+BK_OPRT                                            VARCHAR2(1),
+BK_PORT                                            NUMBER(9),
+BK_LINE                                            NUMBER(9),
+BK_NAME                                            VARCHAR2(200),
+BK_SHPM                                            DATE,
+BK_C20                                             NUMBER(3),
+BK_C40                                             NUMBER(3),
+BK_WGHT                                            NUMBER(6,2),
+BK_MSRM                                            NUMBER(6,2),
+BK_DSCR                                            VARCHAR2(30),
+BK_CRNC                                            VARCHAR2(3),
+BK_RATE                                            NUMBER(9,2),
+BK_CRNC_CMPT                                       VARCHAR2(3),
+BK_RATE_CMPT                                       NUMBER(9,2),
+BK_TERM                                            VARCHAR2(3),
+BK_AGRD                                            VARCHAR2(1),
+BK_NOTE                                            VARCHAR2(200),
+BK_STATUS                                          NUMBER(1)	)
+/
+
+CREATE TABLE BOOKING_RMRKS	(
+BR_BKNG                                            NUMBER(9),
+BR_RMRK                                            VARCHAR2(1000)	)
+/
+
+CREATE TABLE STAMPS			(
+ST_code                                           VARCHAR2(3),
+ST_descr                                          LONG		)
+/
+
+CREATE TABLE CURRENCY			(
+CU_code                                           VARCHAR2(3),
+CU_descr                                          VARCHAR2(30),
+CU_order                                          NUMBER(2)	)
+/
+
+CREATE TABLE CRNCY_RATES		(
+RT_currency                                       VARCHAR2(3),
+RT_date                                           DATE,
+RT_buy                                            NUMBER(9,4),
+RT_sell                                           NUMBER(9,4)	)
+/
+
+CREATE TABLE CHARGE_TYPES		(
+CH_code                                            NUMBER(3),
+CH_actn			VARCHAR2(3)
+CH_action                                          VARCHAR2(1),
+CH_level                                           VARCHAR2(3),  -- B/L, Cargo, Cntr
+CH_short                                           VARCHAR2(3),
+CH_descr                                           VARCHAR2(50),
+CH_vat                                             VARCHAR2(2),
+CH_vteu                                            VARCHAR2(2),
+CH_vtne                                            VARCHAR2(2),
+CH_accnt                                           VARCHAR2(15)	)
+/
+
+CREATE TABLE CHARGE_TARIFFS		(
+TR_code                                            NUMBER(3),
+TR_chrg_type                                       NUMBER(3),
+TR_tariff                                          VARCHAR2(5),
+TR_descr                                           VARCHAR2(60),
+TR_type                                            VARCHAR2(1),
+TR_charge                                          NUMBER(8,3),
+TR_factor                                          NUMBER(4),
+TR_dtl_type                                        VARCHAR2(1)	)
+/
+
+CREATE TABLE CHARGE_TRF_SCALES		(
+TS_tariff                                          NUMBER(3),
+TS_scale                                           NUMBER(3),
+TS_charge                                          NUMBER(8,3)	)
+/
+
+CREATE TABLE ACCNT_ACTNS		(
+AA_code			NUMBER(3),
+AA_oprt			VARCHAR2(1),
+AA_dscr			VARCHAR2(40),
+AA_note			NUMBER(3)
+AA_shrt			VARCHAR2(10),
+AA_dbcr			VARCHAR2(1),
+AA_acnt			VARCHAR2(15),
+AA_acnt_vat		VARCHAR2(15)	)
+/
+
+CREATE TABLE CHRG_ACNT			(
+CA_actn			NUMBER(3),
+CA_chrg			NUMBER(3),
+CA_acnt			VARCHAR2(15),
+CA_acvt			VARCHAR2(15)	)
+/
+
+--CREATE TABLE ACCNTS		(
+--AC_type                                            NUMBER(3),
+--AC_chrg                                            NUMBER(3),
+--AC_acnt                                            VARCHAR2(15),
+--AC_acnt_vat                                        VARCHAR2(15),
+--AC_vat                                             VARCHAR2(15)	)
+--/
+
+CREATE TABLE PRICE_LIST			(
+PL_CODE			NUMBER(3),
+PL_DESCR		VARCHAR2(20),
+PL_ACTION		VARCHAR2(1),
+PL_ACTN			VARCHAR2(3)	)
+/
+
+CREATE TABLE PRICE_CHRG_TYPE		(
+PC_list			NUMBER(3),
+PC_chrg_type		NUMBER(3),
+PC_charge		NUMBER(8,3)	)
+/
+
+CREATE TABLE PRICE_TARIFF		(
+PT_list			NUMBER(3),
+PT_tariff		NUMBER(3),
+PT_charge		NUMBER(8,3)	)
+/
+
+CREATE TABLE CARGO_TYPES		(
+CS_type                                            VARCHAR2(1),
+CS_descr                                           VARCHAR2(50),
+CS_idscr                                           VARCHAR2(50),
+CS_edscr                                           VARCHAR2(50)	)
+/
+
+CREATE TABLE CARGO_TARIFFS		(
+CF_crg_type                                        VARCHAR2(1),
+CF_chrg_type                                       NUMBER(3),
+CF_tariff                                          NUMBER(3),
+CF_cntr_size                                       VARCHAR2(3),
+CF_vssl_type                                       VARCHAR2(3)	)
+/
+
+CREATE TABLE REGIONS		(
+RG_code                                            NUMBER(3),
+RG_name                                            VARCHAR2(20)	)
+/
+
+CREATE TABLE COUNTRY			(
+CN_code			NUMBER(3),
+CN_icode		VARCHAR2(3),
+CN_name			VARCHAR2(20),
+CN_eu			VARCHAR2(1)
+CN_ymlcd		VARCHAR2(2)	)
+/
+
+CREATE TABLE PORTS		(
+PR_code			NUMBER(9),
+PR_type			VARCHAR2(1),  -- Sea/Air Port
+PR_country		NUMBER(3),
+PR_region		NUMBER(3),
+PR_icode		VARCHAR2(3),
+PR_name			VARCHAR2(20),
+PR_ymlcd		VARCHAR2(3)	)
+/
+
+CREATE TABLE VESSELS		(
+VS_code                                            NUMBER(9),
+VS_name                                            VARCHAR2(20),
+VS_shcd                                            VARCHAR2(6),
+VS_type                                            VARCHAR2(4),
+VS_line                                            NUMBER(9),
+VS_flag                                            VARCHAR2(15)	)
+/
+
+CREATE TABLE LINES		(
+LN_CODE                                            NUMBER(9),
+LN_name                                            VARCHAR2(20),
+LN_descr                                           VARCHAR2(30),
+LN_icode                                           VARCHAR2(4)	)
+/
+
+CREATE TABLE LINE_SRVC		(
+LS_line		NUMBER(9),
+LS_name		VARCHAR2(20)	)
+/
+
+CREATE TABLE LINE_LSNG		(
+LL_code		VARCHAR2(4),
+LL_name		VARCHAR2(20)	)
+/
+
+CREATE TABLE LINE_CHRG		(	-- Translate table for Line Charge-Codes
+LC_line		NUMBER(9),
+LC_chrg		NUMBER(9),		-- Local Charge Code
+LC_code		VARCHAR2(5),		-- Line  Charge Code
+LC_dscr		VARCHAR2(30)	)	-- Line  Charge Description
+/
+
+CREATE TABLE LINE_PRICES	(	-- Keeps Price-Lists for each line
+LP_line		NUMBER(9),
+LP_action	VARCHAR2(1),
+LP_price	NUMBER(3)	)
+/
+
+CREATE TABLE LINE_DMRGS			(
+LD_line			NUMBER(9),
+LD_name			NUMBER(9),
+LD_ordr			VARCHAR2(1),
+LD_days			NUMBER(2),
+LD_crsz			VARCHAR2(3),	-- Container Size
+LD_crnc			VARCHAR2(3),	-- Charge Currency
+LD_chrg			NUMBER(3),
+LD_exid			VARCHAR2(20),
+LD_exdt			DATE		)
+/
+
+CREATE TABLE LINE_CLAUSE		(
+LU_LINE			NUMBER(9),
+LU_SHRT			NUMBER(3),		-- Short Code 
+LU_DSCR			LONG		)
+/
+
+CREATE TABLE CNTR_TYPE		(
+CT_code                                            VARCHAR2(3),
+CT_shrt                                            VARCHAR2(10),
+CT_dscr                                            VARCHAR2(50)	)
+/
+
+CREATE TABLE CNTR_SIZE		(
+CZ_code                                            VARCHAR2(3),
+CZ_shrt                                            VARCHAR2(10),
+CZ_dscr                                            VARCHAR2(30)	)
+/
+
+CREATE TABLE CNTRS		(
+CR_code                                            NUMBER(9),
+CR_nmbr                                            VARCHAR2(20),
+CR_type                                            VARCHAR2(3),
+CR_size                                            VARCHAR2(3),
+CR_tare                                            NUMBER(5),
+CR_line                                            NUMBER(9),
+CR_lsng                                            VARCHAR2(4)	)     -- Ref: LINE_lsng
+/
+
+CREATE TABLE CALLS		(
+CL_code                                            NUMBER(9),
+CL_vessel                                          NUMBER(6),
+CL_vyg_in                                          VARCHAR2(10),
+CL_vyg_out                                         VARCHAR2(10),
+CL_line                                            NUMBER(9),
+CL_eta                                             DATE,
+CL_ets                                             DATE,
+CL_poc                                             NUMBER(9),
+CL_mstr                                            VARCHAR2(33)	)
+/
+
+CREATE TABLE CALL_PORTS		(
+CP_code                                            NUMBER(9),
+CP_oprt                                            VARCHAR2(1),
+CP_call                                            NUMBER(9),
+CP_port                                            NUMBER(9)	)
+/
+
+CREATE TABLE BL			(
+BL_code                                            NUMBER(9),
+BL_port                                            NUMBER(9),
+BL_nmbr                                            VARCHAR2(25),
+BL_DCLR			NUMBER(2)
+BL_frwd                                            VARCHAR2(1),
+BL_trns                                            NUMBER(9),
+BL_line                                            NUMBER(9),
+BL_srvc                                            VARCHAR2(15),
+BL_nmcd                                            NUMBER(9),
+BL_name                                            VARCHAR2(255),
+BL_GNRL                                            VARCHAR2(255),
+BL_NTF1                                            VARCHAR2(255),
+BL_NTF2                                            VARCHAR2(255),
+BL_dest_type                                       VARCHAR2(3),      -- CY, TR, TBL
+BL_tbl_agent                                       VARCHAR2(255),
+BL_tbl_dest                                        VARCHAR2(20),
+BL_mthr_vssl                                       VARCHAR2(20),
+BL_dlvr_place                                      VARCHAR2(20),
+BL_srvc_type                                       VARCHAR2(3),
+BL_orgnls                                          NUMBER(1),
+BL_freight                                         VARCHAR2(1),       -- P(repaid), C(ollect)
+BL_issued                                          DATE,
+BL_rmrks                                           VARCHAR2(255),
+BL_rprt                                            number(1),
+BL_DCMT			NUMBER(2)
+BL_stamp                                           NUMBER(3)	)
+/
+
+CREATE TABLE SRVC_BL						(
+SB_srvc						   number(9),
+SB_orgn						   number(9)	)
+/
+
+CREATE TABLE CARGO		(
+CG_code                                            NUMBER(9),
+CG_bl                                              NUMBER(9),
+CG_srvc                                            NUMBER(9),
+CG_type                                            VARCHAR2(1),
+CG_dscr                                            LONG		)
+/
+
+CREATE TABLE CARGO_CNTR		(
+GC_cargo                                           NUMBER(9),
+GC_code                                            NUMBER(9),
+GC_QNTY			NUMBER(3)         -- Alter table Jun/04 Accept Cummulative cntrs (No Numbers)
+GC_cntr_no                                         NUMBER(9),
+GC_seal1                                           VARCHAR2(12),
+GC_seal2                                           VARCHAR2(12),
+GC_seal3                                           VARCHAR2(12),
+GC_mvmnt                                           VARCHAR2(3),
+GC_rmrks                                           VARCHAR2(15),
+GC_wght                                            NUMBER(8),
+GC_expt                                            NUMBER(9),
+GC_rftm                                            VARCHAR2(6),
+GC_imdg                                            VARCHAR2(5)	)
+/
+
+CREATE TABLE CARGO_DETAILS	(
+GD_cargo                                           NUMBER(9),
+GD_pckg                                            NUMBER(6),
+GD_wght                                            NUMBER(9,2),
+GD_msrm                                            NUMBER(9,2),
+GD_mrks                                            VARCHAR2(255),
+GD_cntr                                            NUMBER(9)	)
+/
+
+CREATE TABLE CNTR_CONTROL	(
+CC_cntr                                            NUMBER(9),
+CC_port_out                                        DATE,
+CC_empty                                           DATE,
+CC_stfed                                           DATE,
+CC_full                                            DATE,
+CC_rmrks                                           VARCHAR2(50)	)
+/
+
+CREATE TABLE CALL_NOTES		(
+CO_code                                            NUMBER(9),
+CO_type                                            VARCHAR2(1),
+CO_number                                          NUMBER(9),
+CO_call                                            NUMBER(9),
+CO_nmcd                                            NUMBER(9),
+CO_name                                            VARCHAR2(255),
+CO_issd                                            DATE,
+Co_paid                                            DATE		)
+/
+
+CREATE TABLE NOTE_TYPES				(
+NP_CODE				NUMBER(3),
+NP_OPRT				VARCHAR2(1),
+NP_SHRT				VARCHAR2(3),
+NP_DSCR				VARCHAR2(20)	)
+/
+
+CREATE TABLE NOTES				(
+NT_CODE				NUMBER(9),
+NT_TYPE				VARCHAR2(1),
+NT_NUMBER			NUMBER(9),
+NT_TDID				NUMBER(15)
+NT_RFNC				VARCHAR2(15),
+NT_BL				NUMBER(9),
+NT_NMCD				NUMBER(9),
+NT_NAME				VARCHAR2(255),
+NT_DATE				DATE,			-- Invoice Date (Null Cash)
+NT_PAID				DATE,			-- Paid Date (cash, invc)
+NT_CNCL				VARCHAR2(1)	)	-- Cancelled / Deleted
+/
+
+CREATE TABLE NOTE_CHARGES	(
+NC_NOTE                                            NUMBER(9),
+NC_CARGO                                           NUMBER(9),	-- B/L Cargo Code
+NC_CGCR                                            NUMBER(9),	-- B/L Cargo Cntr Code
+NC_CNTR                                            NUMBER(9),	-- Actual Cntr Code
+NC_QUANTITY                                        NUMBER(3),	-- 0=Prep, 1=Coll
+NC_FROM                                            DATE,
+NC_CHRG_TYPE                                       NUMBER(3),
+NC_TARIFF                                          NUMBER(5),
+NC_AMOUNT                                          NUMBER(10,2),
+NC_L_AMNT                                          NUMBER(10,2),
+NC_CURRENCY                                        VARCHAR2(3),
+NC_RATE                                            NUMBER(9,4),
+NC_DSCNT                                           NUMBER(8,2),
+NC_VAT                                             NUMBER(8,2)	)
+/
+
+CREATE TABLE NOTE_details	(
+TD_NOTE                                                        NUMBER(9),
+TD_field                                                       NUMBER(3),
+TD_VALUE                                                       NUMBER(5),
+TD_GVALUE                                                      VARCHAR2(30)  )
+/
+
+CREATE TABLE NOTE_fields	(
+TF_CODE                                                        NUMBER(3),
+TF_CATEG                                                       NUMBER(3),
+TF_DESCR                                                       VARCHAR2(25),
+TF_VALUE                                                       VARCHAR2(1)   )
+/
+
+CREATE TABLE NOTE_values	(
+TV_CODE                                                        NUMBER(5),
+TV_FIELD                                                       NUMBER(3),
+TV_CVALUE                                                      VARCHAR2(25) )
+/
+
+CREATE TABLE VAT               (
+VT_code                                                        VARCHAR2(2),
+VT_prcnt                                                       NUMBER(6,3)  )
+/
+
+CREATE TABLE VAT_details               (
+VD_vat                                                         VARCHAR2(2),
+VD_prcnt                                                       NUMBER(6,3)  )
+/
+
+CREATE TABLE USERS		(
+UR_code		NUMBER(3),
+UR_NAME		VARCHAR2(20),
+UR_ROLE		VARCHAR2(5),
+UR_LOGIN	VARCHAR2(12),
+UR_PASSWORD	VARCHAR2(12)   )
+/
+
+CREATE TABLE SEQUENCES		(
+SQ_NAME		VARCHAR2(30),
+SQ_NUMBER	NUMBER(8)	)
+/
+
+CREATE TABLE WEEKLY_LFC		(
+WL_LINE		NUMBER(9),
+WL_WEEK		VARCHAR2(4),
+WL_DATE		DATE,
+WL_POST		DATE,
+WL_CALL		VARCHAR2(30),
+WL_EXPT		VARCHAR2(30)	)
+/
+
+CREATE FUNCTION SEQ_NUM (PR_code IN VARCHAR2) RETURN NUMBER IS
+PR_num     NUMBER;
+BEGIN
+   SELECT SQ_number
+     INTO PR_num
+     FROM sequences
+    WHERE SQ_name = PR_code;
+
+   UPDATE sequences
+      SET SQ_number = SQ_number + 1
+    WHERE SQ_name   = PR_code;
+
+   RETURN( PR_num );
+EXCEPTION
+   WHEN NO_DATA_FOUND THEN
+     PR_num := -1;
+     RETURN( PR_num );
+END;
+/
+
